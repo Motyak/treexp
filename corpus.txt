@@ -1,0 +1,51 @@
+./corpus1.in.txt 1
+Les femmes avaient paru, près d'un millier de femmes, aux cheveux épars, dépeignés par la course, aux guenilles montrant la peau nue, des nudités de femelle lasses d'enfanter des meurt-de-faim. Quelques-unes tenaient leur petit entre les bras, le soulevaient, l'agitaient ainsi qu'un drapeau de deuil et de vengeance. D'autres, plus jeunes, avec des gorges gonflées de guerrières, brandissaient des bâtons ; tandis que les vieilles, affreuses, hurlaient si fort, que les cordes de leurs cous décharnés semblaient se rompre. Et les hommes déboulèrent ensuite, deux mille furieux, des galibots, des haveurs, des raccommodeurs, une masse compacte qui roulait d'un seul bloc, serrée, confondue au point qu'on ne distinguait ni les culottes déteintes, ni les tricots de laine en loques, effacés dans la même uniformité terreuse. Les yeux brûlaient, on voyait seulement les trous des bouches noires, chantant la Marseillaise, dont les strophes se perdaient en un mugissement confus accompagné par le claquement des sabots sur la terre dure. Au-dessus des têtes,  parmi le hérissement des barres de fer, une hache passa, portée toute droite ; et cette hache unique, qui était comme l'étendard de la bande avait, dans le ciel clair, le profil aigu d'un couperet de guillotine.
+./corpus1.out.txt 1
+seL efmmse ùaaietn apvr, rpsè d'nv imllire ed efmmse, xva hceùexv péasr, édpeignsé rap al ocvres, xva vgenillse omntratn al epva evn, sed vnditsé ed efmelel alssse d'nefantre sed emvtr-ed-afmi. vQelqvse-nvse etnaietn elrv eptti neter sel rbsa, el osvleùaietn, l'gaitaietn ianis vq'nv rdapeva ed edvli te ed eùngeanec. D'vatrse, lpsv ejvnse, ùace sed ogrgse ognflése ed vgerrièrse, rbandissaietn sed âbtosn ; atndsi evq sel iùeillse, fafrevsse, vhrlaietn is oftr, evq sel ocrdse ed elvsr ocsv édcharnsé esmblaietn es ormper. tE sel ohmmse édbovlèretn nesviet, edxv imlel vfriexv, sed aglibost, sed ahùevsr, sed arccommodevsr, env amses ocmpacet ivq orvlati d'nv eslv lbco, esrreé, ocnfondev va opitn vq'no en idstingvati in sel vclottse édteintse, in sel rticost ed alien ne olqvse, fefacsé adsn al êmem nviformiét etrreves. seL eyxv rbûlaietn, no oùyati esvlemetn sel rtosv sed obvchse onirse, hcantatn al aMrseillaies, odtn sel tsrophse es eprdaietn ne nv vmgissemetn ocnfsv cacompagén rap el lcaqvemetn sed asbost rvs al etrer vder. vA-edsssv sed êttse,  aprim el éhrissemetn sed abrrse ed ref, env ahceh apsas, oprteé otvet rdoiet ; te ectet ahceh nviqev, ivq téati ocmem l'téendadr ed al abned ùaati, adsn el icle lcari, el rpofli iavg d'nv ocvperte ed vgillotien.
+./echobonjour.in.txt 2
+bonjour
+
+./echobonjour.out.txt 2
+obnjorv
+
+./multiplelines.in.txt 6
+salut
+a
+tous
+les
+amis
+
+./multiplelines.out.txt 6
+asltv
+a
+otsv
+sel
+masi
+
+./multiplelines2.in.txt 7
+salut
+a
+tous
+
+les
+amis
+
+./multiplelines2.out.txt 7
+asltv
+a
+otsv
+
+sel
+masi
+
+./ponctuations.in.txt 2
+bonjour! ça va?
+
+./ponctuations.out.txt 2
+obnjorv! aç aù?
+
+./vacancesdeuil.in.txt 1
+les vacances, mon deuil.
+./vacancesdeuil.out.txt 1
+sel aùcancse, nom edvli.
+
