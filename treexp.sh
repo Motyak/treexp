@@ -1,13 +1,16 @@
 #!/bin/sh
 
-# directory name with a trailing '/'
-dir=$1
-res=''
+set -o nounset
 
-for f in $dir*; do
-    nb_of_lines=$(wc -l < $f)
-    res="${res}./${f#$dir} $((nb_of_lines + 1))\n$(cat $f)\n"
-    [ "$(tail -c1 $f)" = "" ] && res="$res\n"
+# directory name with one trailing '/'
+dir=$1
+res=
+
+for f in "$dir"*; do
+    nb_of_lines=$(wc -l < "$f")
+    res="$res./${f#"$dir"} $((nb_of_lines = nb_of_lines + 1))\n$(cat "$f")\n"
+    [ -z "$(tail -c1 "$f")" ] && res="$res\n"
 done
 
-echo "$res" > ${dir%/}.txt
+# we get rid of the last '\n' written in $res
+echo "$res" | head -n-1 > "${dir%/}".txt

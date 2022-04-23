@@ -7,3 +7,12 @@ a new line.
 So if a file only has 1 line, with no empty new line at the end, then
 it won't be considered as a line. So programs such as wc, cat, echo or sed
 won't work as expected and we will have to manually add/remove the extra newline.
+
+Problem :
+echo prints variables that doesn't end with a trailing newline with a trailing newline
+BUT
+prints variables that contains a trailing newline WITHOUT the additional trailing newline
+
+To solve this issue:
+1) We add an extra \n if the string already ends with one
+2) We echo the variable between " and add \c at the end of it
