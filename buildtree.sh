@@ -16,7 +16,8 @@ while [ -n "$line" ]; do
     nb_of_lines_to_read=$(echo "$line" | awk '{print $2}')
 
     to_copy=$(sed -n "$((cur_line_nb + 1)),$((cur_line_nb + nb_of_lines_to_read))p" < "$file")
-    # # for files with trailing newline, we add an extra newline to be consumed later on
+
+    # for files with trailing newline, we add an extra newline to be consumed later on
     [ $nb_of_lines_to_read != $(echo "$to_copy" | wc -l) ] && to_copy="$to_copy\n"
 
     # print file by removing trailing newline
