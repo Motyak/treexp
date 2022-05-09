@@ -19,3 +19,13 @@ prints variables that contains a trailing newline WITHOUT the additional trailin
 To solve this issue:
 1) We add an extra \n if the file content var already ends with one
 2) We echo the file content var between " and add \c at the end of it
+
+
+
+
+
+When we do :
+nb_of_lines=$(wc -l < "$f")
+if "$f" doesn't end with trailing newline, then the last line doesn't count as one.
+if "$f" ends with trailing newline, then the trailing newline doesn't count as a line.
+So in any case we want the number of lines to be what returns wc, plus one.

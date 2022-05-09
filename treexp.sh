@@ -13,5 +13,5 @@ for f in "$dir"*; do
     [ -z "$(tail -c1 "$f")" ] && res="$res\n"
 done
 
-# we get rid of the last '\n' written in $res
+# we get rid of echo's \n
 echo "$res\c" > "${dir%/}".txt
