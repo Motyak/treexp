@@ -32,13 +32,11 @@ function process_regular_file {
     local regular_file="$1"
 
     is_a_textual_file "$regular_file" && {
-        local res=""
-        local nb_of_lines="$(wc -l < "$regular_file")"
-        echo "$regular_file $((nb_of_lines + 1))"
-        cat "$regular_file"
-        echo ""
+        local nb_of_lines; nb_of_lines="$(wc -l < "$regular_file")"
+        OUTPUT="${OUTPUT}./${regular_file#"$ROOT_DIR/"} $((nb_of_lines + 1))"$'\n'
+        OUTPUT="${OUTPUT}$(< "$regular_file")"$'\n'
         # if file ends with trailing newline, add it before returning to line
-        [ "$(tail -c1 "$regular_file")" == $'\n' ] && echo ""
+        [ -z "$(tail -c1 "$regular_file")" ] && OUTPUT="$OUTPUT"$'\n'
     }
 
     return 0 # file shouldn't be handled
@@ -52,31 +50,23 @@ function process_dir {
     done
 }
 
-root_dir="${1:-.}"
-root_dir="${root_dir%/}"
+ROOT_DIR="${1:-.}"
+ROOT_DIR="${ROOT_DIR%/}"
 
-[ -d "root_dir" ] && {
-    process_dir "$root_dir"; exit $?
-}
+OUTPUT=""
+process_dir "$ROOT_DIR"
+echo "$OUTPUT" > "${ROOT_DIR}.txt"
 
-while read -r file_path; do
-    [ -z "$file_path" ] && continue
-    process_file "$file_path"
-done < "$root_dir"
+##########################################################################################
+# would cause a problem, what if two directories in different place have the same name ? #
+##########################################################################################
 
-exit 123
+# [ -d "root_dir" ] && {
+#     process_dir "$root_dir"; exit $?
+# }
 
 
-
-
-# res=
-
-# for f in "$dir"*; do
-#     nb_of_lines=$(wc -l < "$f")
-#     res="$res./${f#"$dir"} $((nb_of_lines + 1))\n$(cat "$f")\n"
-#     # if file ends with trailing newline, add it before returning to line
-#     [ -z "$(tail -c1 "$f")" ] && res="$res\n"
-# done
-
-# # we get rid of echo's \n
-# echo "$res\c" > "${dir%/}".txt
+# while read -r file_path; do
+#     [ -z "$file_path" ] && continue
+#     process_file "$file_path"
+# done < "$root_dir"

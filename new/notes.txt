@@ -1,0 +1,6 @@
+recursivity with process_dir doesn't work at the moment
+
+careful with ROOT_DIR="${ROOT_DIR%/}"
+  -> what if arg is fds// or / , etc..
+
+new buildtree.sh not began at all
